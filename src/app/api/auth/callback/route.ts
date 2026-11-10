@@ -1,7 +1,7 @@
 import { scalekit } from "@/lib/scalekit"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
-export const GET = async(req: NextResponse) => {
+export const GET = async(req: NextRequest) => {
     const {searchParams} = new URL(req.url)
     const code = searchParams.get("code")
     const redirecturi = `${process.env.REDIRECT_URI}/api/auth/callback`
