@@ -12,6 +12,7 @@ export const getSession = async() => {
     }
     try {
         const result:any = await scalekit.validateToken(token)
+        
         const user = await scalekit.user.getUser(result.sub)
         return user
     } catch (error) {

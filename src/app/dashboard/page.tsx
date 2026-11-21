@@ -1,8 +1,15 @@
-import React from 'react'
+import DashboardClient from "@/components/DashboardClient";
+import { getSession } from "@/lib/getSession";
 
-const page = () => {
+const page = async() => {
+  const session = await getSession();
+
+  
+
   return (
-    <div>page</div>
+    <>
+      <DashboardClient ownerId = {session?.user?.id!} />
+    </>
   )
 }
 
