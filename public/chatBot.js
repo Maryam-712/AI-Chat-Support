@@ -124,9 +124,9 @@
         const bubble = document.createElement("div")
         bubble.innerHTML= text
         Object.assign(bubble.style,{
-             borderRadius: "40px",
+             borderRadius: "20px",
              maxWidth: "78%",
-             padding:"8px 12px",
+             padding:"8px 15px",
              fontSize: "13px",
              lineHeight:"1.4",
              marginBottom: "8px",
@@ -135,8 +135,8 @@
              background: from === "user" ? "#000" : "#e5e7eb",
              color: from === "user" ? "#fff" : "#111",
              
-             borderTopRightRadius: from === "user" ? "10px" : "35px",
-             borderTopLeftRadius: from === "user" ? "35px" : "10px",
+             borderTopRightRadius: from === "user" ? "8px" : "20px",
+             borderTopLeftRadius: from === "user" ? "20px" : "8px",
 
         })
 
@@ -164,9 +164,24 @@
         msgArea.appendChild(typing)
         msgArea.scrollTop=msgArea.scrollHeight
         try {
-            
+            const response = await fetch(api_url,{
+                method: "POST",
+                headers:{"content-type":"application/json"},
+                body:JSON.stringify({
+                    ownerId,
+                    message:text
+                })
+            })
+            const data = await response.json()
+            if(!response.ok){
+                throw new Error(data.message || "Something went wrong")
+            }
+            msgArea.removeChild(typing)
+            addMessage(data || "Something went wrong" ,"ai")
         } catch (error) {
-            
+            console.log(error)
+             msgArea.removeChild(typing)
+            addMessage(error.message || "Something went wrong" ,"ai")
         }
     }
 

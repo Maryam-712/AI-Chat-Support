@@ -54,7 +54,7 @@ Provide accurate and helpful customer support, resolve common inquiries, and imp
         const ai = new GoogleGenAI({apiKey:process.env.GEMINI_API_KEY});
 
 const interaction = await ai.interactions.create({
-  model: "gemini-4-hydrogen",
+  model: "gemini-3.5-flash-lite",
   input: prompt,
 });
 
