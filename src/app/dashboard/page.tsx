@@ -1,16 +1,27 @@
 import DashboardClient from "@/components/DashboardClient";
 import { getSession } from "@/lib/getSession";
 
-const page = async() => {
-  const session = await getSession();
+import { redirect } from "next/navigation";
 
-  
+// app/dashboard/page.tsx
 
+import { Suspense } from "react";
+
+
+const Dashboard = () =>  {
   return (
-    <>
-      <DashboardClient ownerId = {session?.user?.id!} />
-    </>
-  )
+    <Suspense fallback={<p>Loading dashboard...</p>}>
+      <DashboardContent />
+    </Suspense>
+  );
 }
 
-export default page
+const DashboardContent = async() => {
+  const session = await getSession();
+
+
+  return <DashboardClient ownerId = {session?.user?.id!} />
+    
+}
+
+export default Dashboard

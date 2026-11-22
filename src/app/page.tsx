@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import HomeClient from "@/components/HomeClient";
 import { getSession } from "@/lib/getSession";
+import { redirect } from "next/navigation";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
 
 const HomeContent = async () => {
   const session = await getSession();
+
 
   return <HomeClient email={session?.user?.email!} />;
 };
