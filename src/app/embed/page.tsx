@@ -1,9 +1,15 @@
 import EmbedClient from '@/components/EmbedClient'
 import { getSession } from '@/lib/getSession'
+import { Suspense } from "react";
 
-import React from 'react'
-
-const page = async () => {
+const Embed = () =>  {
+  return (
+    <Suspense fallback={<p>Loading dashboard...</p>}>
+      <EmbedContent />
+    </Suspense>
+  );
+}
+const EmbedContent = async () => {
     const session = await getSession()
   return (
     <>
@@ -12,4 +18,4 @@ const page = async () => {
   )
 }
 
-export default page
+export default Embed
