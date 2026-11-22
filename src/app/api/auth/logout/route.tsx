@@ -5,5 +5,5 @@ import { cookies } from "next/headers";
 export const GET = async (request: NextRequest) => {
     const cookieStore = await cookies();
     cookieStore.delete('access_token');
-    return NextResponse.redirect(`${process.env.REDIRECT_URI}`);
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}`);
 }

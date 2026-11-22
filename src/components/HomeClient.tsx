@@ -12,6 +12,7 @@ const HomeClient = ({ email }: { email: string }) => {
 
   const firstletter = email ? email[0]?.toUpperCase() : '';
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false)
   const popupRef = useRef<HTMLDivElement>(null);
   const navigate = useRouter();
 
@@ -37,6 +38,7 @@ const HomeClient = ({ email }: { email: string }) => {
   }, [])
 
   const handleLogin = async () => {
+    setLoading(true);
     window.location.href = '/api/auth/login'
   }
 
@@ -81,8 +83,8 @@ const HomeClient = ({ email }: { email: string }) => {
 
             <button className='px-5 py-2 rounded-full bg-black text-white
             text-sm font-medium hover:bg-zinc-700 transition disabled:opacity-60 flex items-center gap-2 cursor-pointer'
-              onClick={handleLogin}>
-              Login</button>}
+              onClick={handleLogin} disabled={loading}>
+              {loading ? "Loading..." : "Login"}</button>}
         </div>
 
       </motion.div>
@@ -129,7 +131,7 @@ const HomeClient = ({ email }: { email: string }) => {
                   <div className='bg-black text-white rounded-lg px-4 py-2 text-sm ml-auto w-fit'>Hi! I placed an order three days ago.
                     Can you check its status?</div>
                   <div className='bg-zinc-100 text-zinc-900 rounded-lg px-4 py-2 text-sm mr-auto w-fit'>Of course! Could you please share your order ID?</div>
-                  <div className='bg-black text-white rounded-lg px-4 py-2 text-sm ml-auto w-50'>Sure, it's ORD-82941.</div>
+                  <div className='bg-black text-white rounded-lg px-4 py-2 text-sm ml-auto w-50'>Sure, its ORD-82941.</div>
                   <div className='bg-zinc-100 text-zinc-900 rounded-lg px-4 py-2 text-sm mr-auto w-fit'>Thank you! I see that your order is currently being processed and should be shipped within the next 24 hours.</div>
                 </div>
                 <motion.div 

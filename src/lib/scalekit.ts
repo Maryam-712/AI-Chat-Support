@@ -9,6 +9,6 @@ export const scalekit = new ScalekitClient(
 
 export const auth = new ScalekitAuthNext({
   client: scalekit,
-  redirectUri: process.env.REDIRECT_URI!,
+  redirectUri: process.env.NEXT_PUBLIC_APP_URL!,
   cookieEncryptionSecret: process.env.COOKIE_ENCRYPTION_SECRET!,
 });
