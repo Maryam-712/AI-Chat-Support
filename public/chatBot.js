@@ -12,7 +12,7 @@
     }
 
     const button = document.createElement("div")
-    button.innerHTML = `<img src="/chat.webp"/>`
+    button.innerHTML = `<img src="/chat.png"/>`
 
     Object.assign(button.style, {
         position: "fixed",
