@@ -3,7 +3,7 @@
 (function () {
 
     const scriptTag = document.currentScript;
-    const api_url = "https://ai-chat-support-psi.vercel.app//api/chat"
+    const api_url = "https://ai-chat-support-psi.vercel.app/api/chat"
     const ownerId = scriptTag.getAttribute("data-owner-id")
 
     if (!ownerId) {
