@@ -12,7 +12,7 @@
     }
 
     const button = document.createElement("div")
-    button.innerHTML = `<i class="fa-regular fa-comment"></i>`
+    button.innerHTML = `<img src="/chat.webp"/>`
 
     Object.assign(button.style, {
         position: "fixed",
