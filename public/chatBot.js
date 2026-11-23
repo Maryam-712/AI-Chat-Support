@@ -12,7 +12,7 @@
     }
 
     const button = document.createElement("div")
-    button.innerHTML = `<img src="/chat.png"/>`
+    button.innerHTML = "💬"
 
     Object.assign(button.style, {
         position: "fixed",
