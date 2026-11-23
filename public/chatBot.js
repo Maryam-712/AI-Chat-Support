@@ -2,8 +2,8 @@
 
 (function () {
 
-    const api_url = `${process.env.NEXT_PUBLIC_APP_URL}/api/chat`
     const scriptTag = document.currentScript;
+    const api_url = "https://ai-chat-support-psi.vercel.app//api/chat"
     const ownerId = scriptTag.getAttribute("data-owner-id")
 
     if (!ownerId) {
