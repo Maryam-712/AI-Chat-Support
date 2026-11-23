@@ -60,7 +60,7 @@ const interaction = await ai.interactions.create({
 
 const response = NextResponse.json(interaction.output_text)
 response.headers.set("Access-Control-Allow-Origin", "*")
-response.headers.set("Access-Control-Allow-Method", "POST, OPTIONS")
+response.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS")
 response.headers.set("Access-Control-Allow-Headers", "Content-Type")
 return response
 
@@ -72,7 +72,7 @@ return response
             )
 
             response.headers.set("Access-Control-Allow-Origin", "*")
-response.headers.set("Access-Control-Allow-Method", "POST, OPTIONS")
+response.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS")
 response.headers.set("Access-Control-Allow-Headers", "Content-Type")
 return response
     }
@@ -83,7 +83,7 @@ export const OPTIONS = async() => {
         status: 201,
         headers:{
             "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Method": "POST, OPTIONS",
+            "Access-Control-Allow-Methods": "POST, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type"
             
         }
